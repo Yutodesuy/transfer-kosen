@@ -1,0 +1,52 @@
+/* app/globals.css */
+
+@import "tailwindcss";
+
+/* ----- ベースのリセット & ダーク背景 ----- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #020617; /* Tailwind の slate-950 相当 */
+  color: #e2e8f0;            /* slate-200 相当 */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* ----- スクロールバーとか細かい見た目を調整したくなったらここに書く ----- */
+
+/* 例: ふわっとしたカード用の影 */
+.card-float {
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+.card-float:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.7);
+}
+
+/* 例: 「たまに動く」用にちょっと揺れるアニメーション */
+@keyframes subtle-wiggle {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-2px) rotate(-0.5deg);
+  }
+}
+
+/* このクラスをつけた要素だけ、たまに揺れる感じ */
+.wiggle-once {
+  animation: subtle-wiggle 0.6s ease-in-out;
+}
